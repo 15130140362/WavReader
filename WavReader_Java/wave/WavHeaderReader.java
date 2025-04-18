@@ -101,8 +101,8 @@ public class WavHeaderReader {
         if (!endian) {
             start += 3;
         }
-        return (buf[start] << 24) + (buf[start + k * 1] << 16) +
-                (buf[start + k * 2] << 8) + buf[start + k * 3];
+        return ((buf[start] & 0xFF) << 24) + ((buf[start + k * 1] & 0xFF) << 16) +
+                ((buf[start + k * 2] & 0xFF) << 8) + (buf[start + k * 3] & 0xFF);
     }
 
     /**
